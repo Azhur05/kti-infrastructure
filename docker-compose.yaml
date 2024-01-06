@@ -23,9 +23,11 @@ services:
       - SQL_HOST=postgres
       - SQL_PORT=5432
       - SQL_DATABASE=flask_db
+      - FLASK_APP=flask_app
+      - FLASK_ENV=development
     ports:
       - "5000:5000"
-    command: flask --app flask_app run --host=0.0.0.0
+    command: flask run --host=0.0.0.0
     depends_on:
       postgres:
         condition: service_healthy
